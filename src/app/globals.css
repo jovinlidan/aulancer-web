@@ -20,6 +20,9 @@ body {
   color: rgb(var(--foreground-rgb));
   background : #FFFF;
 }
+img:not([alt]) {
+  filter: blur(10px);
+}
 
 
 .custom-swiper-pagination-bullet {

@@ -2,14 +2,30 @@ import React from "react";
 import ServiceCarousel from "./components/service-carousel";
 import { Section } from "@/components";
 import { headers } from "next/headers";
+import Image from "next/image";
+import IMAGES_CONSTANT from "@/constants/image.constant";
 
 export default function Service() {
   return (
-    <Section noMaxWidth>
-      <div className="bg-light-gray-blue w-full pt-12 pb-14 flex flex-col">
-        <span className="text-gray-900 font-bold text-4xl text-center">
+    <Section noMaxWidth className="relative">
+      <Image
+        className="absolute top-[-36px] left-[16%] z-service-ball-decoration"
+        src={IMAGES_CONSTANT.circleDecoration}
+        width={72}
+        height={72}
+        alt="circle-decoration"
+      />
+      <Image
+        className="absolute bottom-[-36px] right-[16%] z-service-ball-decoration"
+        src={IMAGES_CONSTANT.circleDecoration}
+        width={72}
+        height={72}
+        alt="circle-decoration"
+      />
+      <div className="bg-light-gray-blue w-full pt-12 pb-14 flex flex-col z-service-bg relative">
+        <h4 className="text-gray-900 font-bold text-4xl text-center">
           Services we offer
-        </span>
+        </h4>
         <ServiceCarousel />
       </div>
     </Section>

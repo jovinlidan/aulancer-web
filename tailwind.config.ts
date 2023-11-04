@@ -57,6 +57,10 @@ const config: Config = {
         "gray-900": "#1A202C",
         "service-label": "##2D3748",
       },
+      zIndex: {
+        "service-bg": "2",
+        "service-ball-decoration": "1",
+      },
     },
   },
   plugins: [],

@@ -6,6 +6,7 @@ export default function Home() {
     <main>
       <HomeJumbotron />
       <HomeService />
+      <div className="pb-20" />
     </main>
   );
 }
