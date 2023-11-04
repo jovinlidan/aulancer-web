@@ -98,7 +98,7 @@ export default function ServiceCarousel() {
   return (
     <Section
       className={clsx(
-        "w-full transition-all duration-1000 ease-in-out",
+        "w-full transition-all duration-1000 ease-in-out max-md:px-8",
         isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-52"
       )}
       ref={sectionRef}
