@@ -1,6 +1,7 @@
 import React from "react";
 import ServiceCarousel from "./components/service-carousel";
 import { Section } from "@/components";
+import { headers } from "next/headers";
 
 export default function Service() {
   return (

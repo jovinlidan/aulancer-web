@@ -20,3 +20,18 @@ body {
   color: rgb(var(--foreground-rgb));
   background : #FFFF;
 }
+
+
+.custom-swiper-pagination-bullet {
+  background-color: transparent !important; 
+  border-width: 1px;
+  border-color: #CBD5E0;
+  border-style: solid;
+  opacity: 1 !important;
+  width : 12px !important;
+  height : 12px !important;
+}
+.custom-swiper-pagination-bullet-active {
+  background-color: #57007B !important;
+  border: none;
+}

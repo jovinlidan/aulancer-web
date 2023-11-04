@@ -6,16 +6,18 @@ interface Props
   noMaxWidth?: boolean;
 }
 
-export default function Section(props: Props) {
+function Section(props: Props, ref: any) {
   const { noMaxWidth = false, ...restProps } = props;
 
   const predefinedClassName = !noMaxWidth ? "max-w-7xl mx-auto" : "";
   return (
     <section
       {...restProps}
+      ref={ref}
       className={`${predefinedClassName} ${props.className}`}
     >
       {props.children}
     </section>
   );
 }
+export default React.forwardRef(Section);

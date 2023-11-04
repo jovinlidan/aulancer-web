@@ -1,4 +1,13 @@
+import SIZE_CONSTANT from "@/constants/size.constant";
 import type { Config } from "tailwindcss";
+
+export const screenSize = {
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  ["2xl"]: 1536,
+};
 
 const config: Config = {
   content: [
@@ -9,6 +18,13 @@ const config: Config = {
     "./src/modules/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: `${screenSize.sm}px`,
+      md: `${screenSize.md}px`,
+      lg: `${screenSize.lg}px`,
+      xl: `${screenSize.xl}px`,
+      "2xl": `${screenSize["2xl"]}px`,
+    },
     extend: {
       backgroundImage: {
         "gradient-contact-us":
@@ -17,10 +33,16 @@ const config: Config = {
           "linear-gradient(180deg, #DE4396 0%, rgba(13, 28, 159, 0.0) 100%)",
         "gradient-purple-text-2":
           "linear-gradient(225deg, #F7666F 0%, #406AFF 100%)",
+        "gradient-service-text":
+          "linear-gradient(225deg, #F76680 0%, #57007B 100%)",
       },
       backgroundColor: {
         header: "#FFFF",
         "light-gray-blue": "#F9F9FF",
+        "bullet-pagination": "#57007B !important",
+      },
+      borderColor: {
+        "service-active": "#F76680",
       },
       height: {
         header: "79px",

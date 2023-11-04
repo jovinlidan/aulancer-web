@@ -1,15 +1,19 @@
 "use client";
+import "swiper/css";
+import "swiper/css/pagination";
+
 import { GearSVG, LaptopSVG, PhoneSVG } from "@/common/assets";
 import { Section } from "@/components";
-import { AnimatePresence } from "framer-motion";
-import React from "react";
-import { motion, wrap } from "framer-motion";
+import React, { useCallback, useRef } from "react";
+import { screenSize } from "@/../tailwind.config";
+import ServiceCard, { ServiceType } from "./service-card";
+//
+import { Swiper, SwiperSlide } from "swiper/react";
+import type { SwiperClass } from "swiper/react";
+import { Pagination } from "swiper/modules";
 
-type ServiceType = {
-  label: string;
-  description: string;
-  icon: React.ReactNode;
-};
+import { AnimatePresence, useInView } from "framer-motion";
+import clsx from "clsx";
 
 const SERVICES: ServiceType[] = [
   {
@@ -44,96 +48,88 @@ const SERVICES: ServiceType[] = [
   },
 ];
 
-const variants = {
-  enter: (direction: number) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    };
+const breakpoints = {
+  0: {
+    slidesPerView: 1,
+    spaceBetween: 8,
   },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1,
+  [screenSize.md]: {
+    slidesPerView: 2,
+    spaceBetween: 20,
   },
-  exit: (direction: number) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    };
+  [screenSize.lg]: {
+    slidesPerView: 3,
+    spaceBetween: 40,
   },
-};
-
-const swipeConfidenceThreshold = 10000;
-
-const swipePower = (offset: number, velocity: number) => {
-  return Math.abs(offset) * velocity;
 };
 
 export default function ServiceCarousel() {
-  const [[pages, direction], setPage] = React.useState([[0, 1, 2, 3, 4], 0]);
+  const slidesPerView = useRef<number>(3);
+  const sectionRef = useRef(null);
+  const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
+  const isInView = useInView(sectionRef, { once: true });
 
-  const paginate = (newDirection: number) => {
-    setPage((prev) => [
-      prev[0].map((item) => item + newDirection),
-      newDirection,
-    ]);
-  };
+  const onSwipe = useCallback((swiper: SwiperClass) => {
+    if (slidesPerView.current !== 1) {
+      setSelectedIndex(swiper.realIndex % swiper.slides.length);
+      return;
+    }
+    setSelectedIndex(SERVICES.length);
+  }, []);
 
+  const onBreakpoint = useCallback((swiper: SwiperClass) => {
+    if (swiper.params.breakpoints) {
+      const cur =
+        swiper.params.breakpoints[swiper.currentBreakpoint || "0"]
+          .slidesPerView;
+      if (cur && cur !== "auto") {
+        slidesPerView.current = cur;
+
+        if (cur !== 3 && cur !== 2) {
+          setSelectedIndex(SERVICES.length);
+        } else {
+          if (swiper.slides.length !== 0) {
+            setSelectedIndex(swiper.realIndex % swiper.slides.length);
+          }
+        }
+      }
+    }
+  }, []);
   return (
-    <Section noMaxWidth className="w-full overflow-hidden">
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.div
-          className="flex pt-14 pb-12"
-          style={{
-            marginLeft: "-15%",
-          }}
-          key="service-carousel"
-          variants={variants}
-          animate="center"
-          initial="enter"
-          exit="exit"
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
-          dragElastic={1}
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
-          }}
-        >
-          {Array.from(Array(5).keys()).map((num, idx) => (
-            <ServiceCard page={pages[num]} key={idx.toString()} />
-          ))}
-        </motion.div>
-      </AnimatePresence>
-    </Section>
-  );
-}
-
-interface ServiceCardProps {
-  page: number;
-}
-
-function ServiceCard(props: ServiceCardProps) {
-  const { page } = props;
-  const idx = wrap(0, SERVICES.length, page);
-  const item = SERVICES[idx];
-  return (
-    <div
-      className="shadow-service min-h-[287px] min-w-[333px] select-none box-border bg-white mx-5 rounded-md "
-      key={item.toString()}
-      title={item.label}
+    <Section
+      className={clsx(
+        "w-full transition-all duration-1000 ease-in-out",
+        isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-52"
+      )}
+      ref={sectionRef}
     >
-      <div className="flex flex-col items-center justify-center  pt-9 pl-4 pr-4 pb-10">
-        <div className="flex items-center justify-center">{item.icon}</div>
-        <span className="text-service-label text-xl font-semibold text-center mt-6">
-          {item.label}
-        </span>
-        <span className="text-gray-900 text-sm text-center mt-5">
-          {item.description}
-        </span>
-      </div>
-    </div>
+      <Swiper
+        loop
+        centeredSlides
+        pagination={{
+          clickable: true,
+          bulletActiveClass:
+            "swiper-pagination-bullet-active custom-swiper-pagination-bullet-active",
+          bulletClass:
+            "swiper-pagination-bullet custom-swiper-pagination-bullet",
+        }}
+        className="flex"
+        initialSlide={2}
+        onRealIndexChange={onSwipe}
+        onBreakpoint={onBreakpoint}
+        modules={[Pagination]}
+        style={{
+          paddingBottom: selectedIndex !== SERVICES.length ? 110 : 56,
+          paddingTop: 56,
+        }}
+        breakpoints={breakpoints}
+      >
+        {SERVICES.map((item, idx) => (
+          <SwiperSlide key={item.label.toString()} title={item.label}>
+            <ServiceCard idx={idx} item={item} selectedIndex={selectedIndex} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Section>
   );
 }
