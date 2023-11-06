@@ -67,7 +67,7 @@ export default function ServiceCarousel() {
   const slidesPerView = useRef<number>(3);
   const sectionRef = useRef(null);
   const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
-  const isInView = useInView(sectionRef, { once: true });
+  const isInView = useInView(sectionRef, { once: false });
 
   const onSwipe = useCallback((swiper: SwiperClass) => {
     if (slidesPerView.current !== 1) {

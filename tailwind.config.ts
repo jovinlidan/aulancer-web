@@ -60,6 +60,7 @@ const config: Config = {
       zIndex: {
         "service-bg": "2",
         "service-ball-decoration": "1",
+        header: "1000",
       },
     },
   },

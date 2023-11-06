@@ -16,7 +16,7 @@ export default function Service() {
         alt="circle-decoration"
       />
       <Image
-        className="absolute bottom-[-36px] right-[16%] z-service-ball-decoration"
+        className="absolute bottom-[-36px] left-[8%] z-service-ball-decoration"
         src={IMAGES_CONSTANT.circleDecoration}
         width={72}
         height={72}
