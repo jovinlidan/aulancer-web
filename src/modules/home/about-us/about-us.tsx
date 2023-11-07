@@ -7,7 +7,7 @@ import OurMission from "./components/our-mission";
 
 export default function AboutUs() {
   return (
-    <Section className="flex flex-col items-center justify-center mt-32">
+    <Section className="flex flex-col items-center justify-center mt-28">
       <AboutUsTitle />
       <OurJourney />
       <OurValues />

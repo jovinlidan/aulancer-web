@@ -5,6 +5,8 @@ const IMAGES_CONSTANT = {
   ourJourney: "/assets/images/our-journey.png",
   ourMission: "/assets/images/our-mission.png",
   ourValues: "/assets/images/our-values.png",
+  arrowDecoration: "/assets/images/arrow-decoration.png",
+  arrowDecoration2: "/assets/images/arrow-decoration-2.png",
 };
 
 export default IMAGES_CONSTANT;
