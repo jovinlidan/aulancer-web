@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperClass } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
-import { AnimatePresence, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import clsx from "clsx";
 
 const SERVICES: ServiceType[] = [
@@ -115,11 +115,12 @@ export default function ServiceCarousel() {
         }}
         className="flex"
         initialSlide={2}
+        slideToClickedSlide
         onRealIndexChange={onSwipe}
         onBreakpoint={onBreakpoint}
         modules={[Pagination]}
         style={{
-          paddingBottom: selectedIndex !== SERVICES.length ? 110 : 56,
+          paddingBottom: selectedIndex !== SERVICES.length ? 100 : 56,
           paddingTop: 56,
         }}
         breakpoints={breakpoints}

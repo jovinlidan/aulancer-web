@@ -43,6 +43,7 @@ const config: Config = {
       },
       borderColor: {
         "service-active": "#F76680",
+        "our-key-card-border": "#E7DAED",
       },
       height: {
         header: "79px",
@@ -54,6 +55,7 @@ const config: Config = {
       textColor: {
         default: "#4A5568",
         "gray-50": "#FAFAFA",
+        "gray-600": "#718096",
         "gray-900": "#1A202C",
         "service-label": "##2D3748",
       },

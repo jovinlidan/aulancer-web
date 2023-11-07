@@ -1,4 +1,5 @@
 import { HomeJumbotron } from "@/modules/home/jumbotron";
+import { HomeOurKey } from "@/modules/home/our-key";
 import { HomeService } from "@/modules/home/service";
 
 export default function Home() {
@@ -6,7 +7,8 @@ export default function Home() {
     <main>
       <HomeJumbotron />
       <HomeService />
-      <div className="pb-20" />
+      <HomeOurKey />
+      {/* <div className="pb-20" /> */}
     </main>
   );
 }
