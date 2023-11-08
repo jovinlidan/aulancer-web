@@ -3,6 +3,7 @@ import { HomeArrowDecoration } from "@/modules/home/arrow-decoration";
 import { HomeJumbotron } from "@/modules/home/jumbotron";
 import { HomeOurFounder } from "@/modules/home/our-founder";
 import { HomeOurKey } from "@/modules/home/our-key";
+import { HomeOurTechStack } from "@/modules/home/our-tech-stack";
 import { HomeService } from "@/modules/home/service";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <HomeArrowDecoration />
       <HomeAboutUs />
       <HomeOurFounder />
+      <HomeOurTechStack />
     </main>
   );
 }
