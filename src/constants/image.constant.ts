@@ -7,6 +7,7 @@ const IMAGES_CONSTANT = {
   ourValues: "/assets/images/our-values.png",
   arrowDecoration: "/assets/images/arrow-decoration.png",
   arrowDecoration2: "/assets/images/arrow-decoration-2.png",
+  ourFounder: "/assets/images/our-founder.png",
 };
 
 export default IMAGES_CONSTANT;

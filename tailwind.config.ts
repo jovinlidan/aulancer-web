@@ -60,6 +60,7 @@ const config: Config = {
         "service-label": "##2D3748",
         "about-us-description": "#2D3748",
         "about-us-highlight": "#BD417E",
+        "our-founder-position": "#BD417E",
       },
       zIndex: {
         "service-bg": "2",
