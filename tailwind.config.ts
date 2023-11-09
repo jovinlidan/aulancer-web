@@ -45,6 +45,7 @@ const config: Config = {
         header: "#FFFF",
         "light-gray-blue": "#F9F9FF",
         "bullet-pagination": "#57007B !important",
+        "footer-divider": "#CBD5E0",
       },
       borderColor: {
         "service-active": "#F76680",
@@ -56,6 +57,7 @@ const config: Config = {
       boxShadow: {
         header: "0px 4px 40px 0px rgba(0, 0, 0, 0.10)",
         service: "0px 4px 30px 0px rgba(0, 0, 0, 0.05)",
+        "social-footer": "0px 4px 14px 0px rgba(0, 0, 0, 0.15)",
       },
       textColor: {
         default: "#4A5568",

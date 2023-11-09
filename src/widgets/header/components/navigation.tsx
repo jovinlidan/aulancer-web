@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import ROUTES_CONSTANT from "@/constants/route.constant";
 
 type NavItem = {
   label: string;
@@ -9,15 +10,15 @@ type NavItem = {
 const NAV_ITEMS: NavItem[] = [
   {
     label: "Services",
-    href: "#services",
+    href: ROUTES_CONSTANT.services,
   },
   {
     label: "Our Key Values",
-    href: "#our-key-values",
+    href: ROUTES_CONSTANT.ourKeyValues,
   },
   {
     label: "About Us",
-    href: "#about-us",
+    href: ROUTES_CONSTANT.aboutUs,
   },
 ];
 export default function Navigation() {
