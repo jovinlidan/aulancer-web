@@ -40,7 +40,7 @@ export default function FounderCard(props: Props) {
         height={473}
         alt={name}
         loading="lazy"
-        className="max-md:w-[45vw] max-md:max-w-[200px] md:w-full"
+        className="max-md:w-[45vw] max-md:max-w-[200px] md:w-full select-none pointer-events-none"
       />
       <div
         className={clsx(

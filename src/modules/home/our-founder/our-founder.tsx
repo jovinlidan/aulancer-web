@@ -43,7 +43,7 @@ export default function OurFounder() {
       className="flex flex-col items-center justify-center mt-28 bg-light-gray-blue py-16"
     >
       <OurFounderTitle />
-      <div className="flex w-full justify-between max-w-[90vw] flex-col md:flex-row">
+      <div className="flex max-w-[1400px] justify-between w-[90vw] flex-col md:flex-row">
         {OUR_FOUNDERS.map((founder) => (
           <FounderCard {...founder} key={founder.name} />
         ))}

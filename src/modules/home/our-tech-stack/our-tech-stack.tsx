@@ -71,12 +71,15 @@ export default function OurTechStack() {
         {OUR_TECH_STACK.map((techStack) => (
           <div
             key={techStack.name}
-            className="relative w-[166px] h-[94px] mx-4"
+            className="relative w-[166px] h-[94px] mx-4 select-none"
           >
             <Image
               src={techStack.imageUrl}
               alt={techStack.name}
-              className={clsx("object-contain", techStack.className)}
+              className={clsx(
+                "object-contain select-none pointer-events-none",
+                techStack.className
+              )}
               fill
             />
           </div>

@@ -35,6 +35,11 @@ const config: Config = {
           "linear-gradient(225deg, #F7666F 0%, #406AFF 100%)",
         "gradient-service-text":
           "linear-gradient(225deg, #F76680 0%, #57007B 100%)",
+        "gradient-secondary-bg":
+          "linear-gradient(225deg, #F1F1F5 0%, #E4ECF7 100%)",
+        "gradient-danger-bg":
+          "linear-gradient(225deg, #FFC656 0%, #F16063 100%)",
+        "gradient-dark-bg": "linear-gradient(225deg, #29272E 0%, #27272E 100%)",
       },
       backgroundColor: {
         header: "#FFFF",

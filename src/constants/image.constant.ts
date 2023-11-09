@@ -8,6 +8,7 @@ const IMAGES_CONSTANT = {
   arrowDecoration: "/assets/images/arrow-decoration.png",
   arrowDecoration2: "/assets/images/arrow-decoration-2.png",
   ourFounder: "/assets/images/our-founder.png",
+  lineDecoration: "/assets/images/line-decoration.png",
 
   techStack: {
     golang: "/assets/images/tech-stack/golang.png",
