@@ -32,7 +32,7 @@ export default function Navigation() {
   return (
     <div className="flex flex-[1] lg:flex-[2] max-md:mt-8">
       <div className="flex flex-col flex-[1]">
-        <h6 className="text-default font-bold text-lg mb-2">Links</h6>
+        <span className="text-default font-bold text-lg mb-2">Links</span>
         <ul>
           {LINKS.map((link) => (
             <li key={link.label} title={link.label}>
@@ -47,7 +47,7 @@ export default function Navigation() {
         </ul>
       </div>
       <div className="flex flex-col flex-1 lg:flex-[1.8]">
-        <h6 className="text-default font-bold text-lg mb-2">Contact Us</h6>
+        <span className="text-default font-bold text-lg mb-2">Contact Us</span>
         <ul>
           {CONTACT_US.map((contact) => (
             <li key={contact.label} title={contact.label}>
