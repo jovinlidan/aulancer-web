@@ -2,6 +2,7 @@ import { Section } from "@/components";
 import clsx from "clsx";
 import * as React from "react";
 import OurKeyTitle from "./components/our-key-title";
+import ROUTES_CONSTANT from "@/constants/route.constant";
 
 type OurKeyType = {
   number: string;
@@ -58,7 +59,10 @@ const OUR_KEYS: OurKeyType[] = [
 
 export default function OurKey() {
   return (
-    <Section className="flex py-11 flex-col">
+    <Section
+      className="flex py-11 flex-col"
+      id={ROUTES_CONSTANT.ourKeyValues.replace("#", "")}
+    >
       <OurKeyTitle />
       <div className="md:flex-col">
         {/* Desktop */}

@@ -80,6 +80,7 @@ export default function OurTechStack() {
                 "object-contain select-none pointer-events-none",
                 techStack.className
               )}
+              sizes="100vw"
               fill
             />
           </div>

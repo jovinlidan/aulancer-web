@@ -2,10 +2,15 @@ import ServiceCarousel from "./components/service-carousel";
 import { Section } from "@/components";
 import Image from "next/image";
 import IMAGES_CONSTANT from "@/constants/image.constant";
+import ROUTES_CONSTANT from "@/constants/route.constant";
 
 export default function Service() {
   return (
-    <Section noMaxWidth className="relative">
+    <Section
+      noMaxWidth
+      className="relative"
+      id={ROUTES_CONSTANT.services.replace("#", "")}
+    >
       <Image
         className="absolute top-[-36px] left-[16%] z-service-ball-decoration"
         src={IMAGES_CONSTANT.circleDecoration}

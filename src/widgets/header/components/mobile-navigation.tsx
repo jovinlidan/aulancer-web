@@ -37,15 +37,20 @@ export default function MobileNavigation() {
       <HamburgerButton isOpen={isOpen} toggleOpen={toggleOpen} />
       <div
         className={clsx(
-          "h-[170px] bg-header absolute w-full top-full left-0 right-0 z-mobile-navigation transition-all duration-1000 ease-in-out",
-          "-translate-y-[279px] scale-y-0 shadow-header",
-          isOpen && "animate-mobile-navigation",
-          "rounded-b-lg"
+          "h-[170px] bg-header absolute w-full top-full left-0 right-0 z-mobile-navigation transition-all duration-300 ease-in-out",
+          "-translate-y-[180px] scale-y-0 shadow-header", // 249px
+          isOpen && "translate-y-0 scale-y-100",
+          "rounded-b-lg origin-top"
         )}
       >
         <nav className="flex flex-col p-8 items-center [&>a:not(:last-child)]:mb-4">
           {NAV_ITEMS.map((item) => (
-            <Link key={item.label} href={item.href}>
+            <Link
+              key={item.label}
+              href={item.href}
+              title={item.label}
+              onClick={toggleOpen}
+            >
               <span className="text-base text-about-us-description font-medium">
                 {item.label}
               </span>

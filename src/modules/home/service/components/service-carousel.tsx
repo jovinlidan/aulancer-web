@@ -14,9 +14,7 @@ import type { SwiperClass } from "swiper/react";
 
 import { useInView } from "framer-motion";
 import clsx from "clsx";
-import { LazyMotion } from "framer-motion";
-
-const load = import("@/utils/motion-features").then((res) => res.default);
+import { LazyMotion, domAnimation } from "framer-motion";
 
 const SERVICES: ServiceType[] = [
   {
@@ -106,7 +104,7 @@ export default function ServiceCarousel() {
       )}
       ref={sectionRef}
     >
-      <LazyMotion features={load as any}>
+      <LazyMotion features={domAnimation}>
         <Swiper
           loop
           centeredSlides

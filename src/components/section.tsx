@@ -8,7 +8,7 @@ interface Props
 }
 
 function Section(props: Props, ref: any) {
-  const { noMaxWidth = false, ...restProps } = props;
+  const { noMaxWidth = false, id, ...restProps } = props;
 
   return (
     <section
@@ -19,6 +19,11 @@ function Section(props: Props, ref: any) {
         props.className
       )}
     >
+      {id && (
+        <div className="relative">
+          <div className="absolute -top-[79px]" id={id} />
+        </div>
+      )}
       {props.children}
     </section>
   );

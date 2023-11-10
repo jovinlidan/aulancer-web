@@ -12,7 +12,7 @@ export default function Header() {
         <Navigation />
         <ContactUs />
       </section>
-      <section className="items-center h-full mx-auto flex px-4 md:hidden justify-between">
+      <section className="bg-header items-center h-full mx-auto flex px-4 md:hidden justify-between">
         <Logo />
         <MobileNavigation />
       </section>

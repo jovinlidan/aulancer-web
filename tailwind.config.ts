@@ -26,17 +26,6 @@ const config: Config = {
       "2xl": `${screenSize["2xl"]}px`,
     },
     extend: {
-      keyframes: {
-        "mobile-navigation": {
-          "0%": { transform: "scaleY(0) translateY(-249px)" },
-          "30%": { transform: "scaleY(0) translateY(-170px)" },
-          "100%": { transform: "scaleY(1) translateY(0px)" },
-        },
-      },
-      animation: {
-        "mobile-navigation":
-          "mobile-navigation .3s ease-in-out  0s 1 normal forwards",
-      },
       backgroundImage: {
         "gradient-contact-us":
           "linear-gradient(225deg, #6675F7 0%, #57007B 100%)",
@@ -84,8 +73,8 @@ const config: Config = {
         "service-bg": "2",
         "service-ball-decoration": "1",
         header: "100000",
-        "mobile-navigation": "999",
-        "mobile-navigation-overlay": "998",
+        "mobile-navigation": "-1",
+        "mobile-navigation-overlay": "-2",
         "about-us-image": "2",
         "about-us-image-decoration": "1",
       },
