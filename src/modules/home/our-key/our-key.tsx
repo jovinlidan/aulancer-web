@@ -1,15 +1,12 @@
+"use client";
 import { Section } from "@/components";
 import clsx from "clsx";
 import * as React from "react";
 import OurKeyTitle from "./components/our-key-title";
 import ROUTES_CONSTANT from "@/constants/route.constant";
+import { useInView } from "framer-motion";
+import OurKeyCard, { OurKeyType } from "./components/our-key-card";
 
-type OurKeyType = {
-  number: string;
-  title: string;
-  description: string;
-  customClassName?: React.HTMLProps<HTMLElement>["className"];
-};
 const OUR_KEYS: OurKeyType[] = [
   {
     number: "#1",
@@ -58,20 +55,45 @@ const OUR_KEYS: OurKeyType[] = [
 ];
 
 export default function OurKey() {
+  const divRef = React.useRef(null);
+  const isInView = useInView(divRef, { once: true });
+
+  const mobileDivRef = [
+    React.useRef(null),
+    React.useRef(null),
+    React.useRef(null),
+    React.useRef(null),
+    React.useRef(null),
+    React.useRef(null),
+  ];
+  const mobileIsInView = [
+    useInView(mobileDivRef[0], { once: true }),
+    useInView(mobileDivRef[1], { once: true }),
+    useInView(mobileDivRef[2], { once: true }),
+    useInView(mobileDivRef[3], { once: true }),
+    useInView(mobileDivRef[4], { once: true }),
+    useInView(mobileDivRef[5], { once: true }),
+  ];
   return (
     <Section
       className="flex py-11 flex-col"
       id={ROUTES_CONSTANT.ourKeyValues.replace("#", "")}
     >
       <OurKeyTitle />
-      <div className="md:flex-col">
+      <div className="md:flex-col" ref={divRef}>
         {/* Desktop */}
         <div className="hidden md:flex-row md:flex">
           {[0, 2, 4].map((item) => (
-            <Card
+            <OurKeyCard
               direction="bottom"
               ourKey={OUR_KEYS[item]}
-              className={OUR_KEYS[item].customClassName}
+              className={clsx(
+                OUR_KEYS[item].customClassName,
+                "transition-all duration-1000 ease-in-out",
+                isInView
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-1/3 opacity-0"
+              )}
               key={item.toString()}
             />
           ))}
@@ -79,10 +101,16 @@ export default function OurKey() {
         <hr className="md:h-[2px] md:my-8 bg-gradient-service-text border-0 max-md:hidden" />
         <div className="flex flex-col md:flex-row max-md:hidden">
           {[1, 3, 5].map((item) => (
-            <Card
+            <OurKeyCard
               direction="top"
               ourKey={OUR_KEYS[item]}
-              className={OUR_KEYS[item].customClassName}
+              className={clsx(
+                OUR_KEYS[item].customClassName,
+                "transition-all duration-1000 ease-in-out",
+                isInView
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-1/3 opacity-0"
+              )}
               key={item.toString()}
             />
           ))}
@@ -92,9 +120,16 @@ export default function OurKey() {
           <hr className="max-md:min-w-[2px] max-md:h-auto bg-gradient-service-text border-0" />
           <div className="flex flex-col">
             {OUR_KEYS.map((item, index) => (
-              <Card
+              <OurKeyCard
+                ref={mobileDivRef[index]}
                 ourKey={item}
-                className={item.customClassName}
+                className={clsx(
+                  item.customClassName,
+                  "transition-all duration-1000 ease-in-out",
+                  mobileIsInView[index]
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-1/3 opacity-0"
+                )}
                 key={index.toString()}
                 direction="left"
               />
@@ -103,54 +138,5 @@ export default function OurKey() {
         </div>
       </div>
     </Section>
-  );
-}
-
-interface CardProps
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  > {
-  direction: "top" | "bottom" | "left";
-  ourKey: OurKeyType;
-}
-
-function Card(props: CardProps) {
-  const { className, direction, ourKey, ...restProps } = props;
-  const directionClassName =
-    direction === "top"
-      ? "md:after:-top-[30px] md:after:-mt-4 md:mt-3"
-      : direction === "bottom"
-      ? "md:after:-bottom-[30px] md:after:-mb-4 md:mb-3"
-      : "max-md:after:-left-[30px] max-md:after:-ml-5 max-md:ml-12";
-
-  return (
-    <div
-      className={clsx(
-        "flex flex-col border border-solid border-our-key-card-border rounded-lg relative select-none",
-        "after:absolute after:bg-gradient-service-text",
-        (direction === "bottom" || direction === "top") &&
-          "after:w-[2px] after:h-[30px] after:left-0 after:right-0 after:mx-auto",
-        direction === "left" &&
-          "after:w-[30px] after:h-[2px] after:top-0 after:bottom-0 after:my-auto",
-        "md:p-5 md:min-h-[160px] md:max-w-[300px]",
-        "max-md:p-3 ",
-        directionClassName,
-        className
-      )}
-      {...restProps}
-    >
-      <span className="flex items-center">
-        <h6 className="font-bold max-md:text-base md:text-lg text-transparent bg-gradient-service-text bg-clip-text">
-          {ourKey.number}
-        </h6>
-        <h6 className="font-bold max-md:text-base md:text-lg ml-2">
-          {ourKey.title}
-        </h6>
-      </span>
-      <p className="text-gray-600 font-normal max-md:text-xs md:text-sm mt-1 lg:mt-3">
-        {ourKey.description}
-      </p>
-    </div>
   );
 }

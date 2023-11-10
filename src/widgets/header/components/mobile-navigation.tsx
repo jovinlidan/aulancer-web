@@ -1,5 +1,5 @@
 "use client";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect } from "react";
 import HamburgerButton from "./hamburger-button";
 import clsx from "clsx";
 import ROUTES_CONSTANT from "@/constants/route.constant";
@@ -28,8 +28,8 @@ export default function MobileNavigation() {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleOpen = () => setIsOpen((prev) => !prev);
 
-  useLayoutEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto";
+  useEffect(() => {
+    document.body.style.overflowY = isOpen ? "hidden" : "auto";
   }, [isOpen]);
 
   return (

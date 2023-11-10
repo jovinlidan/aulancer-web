@@ -1,10 +1,21 @@
+"use client";
 import IMAGES_CONSTANT from "@/constants/image.constant";
+import clsx from "clsx";
+import { useInView } from "framer-motion";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 
 export default function OurJourney() {
+  const articleRef = useRef(null);
+  const isInView = useInView(articleRef, { once: true });
   return (
-    <article className="flex justify-between flex-col-reverse lg:flex-row items-center">
+    <article
+      className={clsx(
+        "flex justify-between flex-col-reverse lg:flex-row items-center transition-all duration-1000 ease-in-out",
+        isInView ? "translate-x-0 opacity-100" : "translate-x-1/3 opacity-0"
+      )}
+      ref={articleRef}
+    >
       <div className="lg:max-w-[45%] mt-5 md:mt-8 xl:mt-5 md:mr-4">
         <h4 className="font-semibold text-xl md:text-[28px] mb-2 md:mb-4 xl:mb-7">
           Our Journey

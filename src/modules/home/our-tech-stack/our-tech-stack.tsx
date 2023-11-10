@@ -1,9 +1,11 @@
+"use client";
 import { Section } from "@/components";
-import React from "react";
+import React, { useRef } from "react";
 import OurTechStackTitle from "./components/our-tech-stack";
 import Image from "next/image";
 import IMAGES_CONSTANT from "@/constants/image.constant";
 import clsx from "clsx";
+import { useInView } from "framer-motion";
 
 type OurTechStackType = {
   name: string;
@@ -64,10 +66,18 @@ const OUR_TECH_STACK: OurTechStackType[] = [
 ];
 
 export default function OurTechStack() {
+  const divRef = useRef(null);
+  const isInView = useInView(divRef, { once: true });
   return (
     <Section className="flex flex-col items-center justify-center my-16">
       <OurTechStackTitle />
-      <div className="flex flex-wrap justify-center">
+      <div
+        className={clsx(
+          "flex flex-wrap justify-center transition-all duration-1000 ease-in-out",
+          isInView ? "translate-y-0 opacity-100" : "translate-y-1/3 opacity-0"
+        )}
+        ref={divRef}
+      >
         {OUR_TECH_STACK.map((techStack) => (
           <div
             key={techStack.name}

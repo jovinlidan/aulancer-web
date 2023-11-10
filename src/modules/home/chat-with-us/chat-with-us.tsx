@@ -1,6 +1,7 @@
 import { Section } from "@/components";
 import React from "react";
 import LineDecorations from "./components/line-decorations";
+import Link from "next/link";
 
 export default function ChatWithUs() {
   return (
@@ -10,9 +11,14 @@ export default function ChatWithUs() {
       </h4>
       <div className="relative max-md:mb-20">
         <LineDecorations />
-        <button className="bg-gradient-danger-bg border border-solid border-white w-[262px] h-[57px] rounded">
+        <Link
+          className="flex items-center justify-center bg-gradient-danger-bg border border-solid border-white w-[262px] h-[57px] rounded"
+          href="https://api.whatsapp.com/send?phone=62895633098496"
+          title="Chat With Us"
+          target="_blank"
+        >
           <span className="text-gray-50  font-bold text-lg">Chat with us</span>
-        </button>
+        </Link>
       </div>
     </Section>
   );

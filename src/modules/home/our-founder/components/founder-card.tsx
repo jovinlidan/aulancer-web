@@ -31,7 +31,10 @@ export default function FounderCard(props: Props) {
   } = props;
   return (
     <div
-      className={clsx("flex w-full md:w-[30%] max-md:mt-8", containerClassName)}
+      className={clsx(
+        "flex w-full md:w-[30%] max-md:mt-8 hover:[&>img]:scale-105 cursor-pointer",
+        containerClassName
+      )}
       title={name}
     >
       <Image
@@ -40,7 +43,7 @@ export default function FounderCard(props: Props) {
         height={473}
         alt={name}
         loading="lazy"
-        className="max-md:w-[45vw] max-md:max-w-[200px] md:w-full select-none pointer-events-none"
+        className="max-md:w-[45vw] max-md:max-w-[200px] md:w-full select-none transition-all duration-300 ease-in-out"
       />
       <div
         className={clsx(

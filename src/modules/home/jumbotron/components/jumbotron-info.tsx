@@ -1,8 +1,21 @@
-import React from "react";
+"use client";
+
+import clsx from "clsx";
+import { useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 export default function JumbotronInfo() {
+  const divRef = useRef(null);
+  const isInView = useInView(divRef, { once: true });
+
   return (
-    <div className="max-lg:mb-8">
+    <div
+      ref={divRef}
+      className={clsx(
+        "max-lg:mb-8 transition-all duration-1000 ease-in-out",
+        isInView ? "translate-x-0 opacity-100" : "-translate-x-1/3 opacity-0"
+      )}
+    >
       <div className="flex-1">
         <span className="text-5xl font-light max-md:flex max-md:flex-wrap max-md:leading-[70px]">
           <span className="mr-4">Great</span>
