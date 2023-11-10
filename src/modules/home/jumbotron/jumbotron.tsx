@@ -5,7 +5,7 @@ import { Section } from "@/components";
 
 export default function Jumbotron() {
   return (
-    <Section className="flex items-center">
+    <Section className="flex items-center flex-col-reverse md:flex-row">
       <JumbotronInfo />
       <JumbotronImage />
     </Section>

@@ -1,7 +1,5 @@
-import React from "react";
 import ServiceCarousel from "./components/service-carousel";
 import { Section } from "@/components";
-import { headers } from "next/headers";
 import Image from "next/image";
 import IMAGES_CONSTANT from "@/constants/image.constant";
 

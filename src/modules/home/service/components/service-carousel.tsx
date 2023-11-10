@@ -4,16 +4,19 @@ import "swiper/css/pagination";
 
 import { GearSVG, LaptopSVG, PhoneSVG } from "@/common/assets";
 import { Section } from "@/components";
-import React, { useCallback, useRef } from "react";
+import { useCallback, useRef, useState } from "react";
 import { screenSize } from "@/../tailwind.config";
 import ServiceCard, { ServiceType } from "./service-card";
 //
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperClass } from "swiper/react";
-import { Pagination } from "swiper/modules";
 
 import { useInView } from "framer-motion";
 import clsx from "clsx";
+import { LazyMotion } from "framer-motion";
+
+const load = import("@/utils/motion-features").then((res) => res.default);
 
 const SERVICES: ServiceType[] = [
   {
@@ -66,7 +69,7 @@ const breakpoints = {
 export default function ServiceCarousel() {
   const slidesPerView = useRef<number>(3);
   const sectionRef = useRef(null);
-  const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const isInView = useInView(sectionRef, { once: false });
 
   const onSwipe = useCallback((swiper: SwiperClass) => {
@@ -103,34 +106,40 @@ export default function ServiceCarousel() {
       )}
       ref={sectionRef}
     >
-      <Swiper
-        loop
-        centeredSlides
-        pagination={{
-          clickable: true,
-          bulletActiveClass:
-            "swiper-pagination-bullet-active custom-swiper-pagination-bullet-active",
-          bulletClass:
-            "swiper-pagination-bullet custom-swiper-pagination-bullet",
-        }}
-        className="flex"
-        initialSlide={2}
-        slideToClickedSlide
-        onRealIndexChange={onSwipe}
-        onBreakpoint={onBreakpoint}
-        modules={[Pagination]}
-        style={{
-          paddingBottom: selectedIndex !== SERVICES.length ? 100 : 56,
-          paddingTop: 56,
-        }}
-        breakpoints={breakpoints}
-      >
-        {SERVICES.map((item, idx) => (
-          <SwiperSlide key={item.label.toString()} title={item.label}>
-            <ServiceCard idx={idx} item={item} selectedIndex={selectedIndex} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <LazyMotion features={load as any}>
+        <Swiper
+          loop
+          centeredSlides
+          pagination={{
+            clickable: true,
+            bulletActiveClass:
+              "swiper-pagination-bullet-active custom-swiper-pagination-bullet-active",
+            bulletClass:
+              "swiper-pagination-bullet custom-swiper-pagination-bullet",
+          }}
+          className="flex"
+          initialSlide={2}
+          slideToClickedSlide
+          onRealIndexChange={onSwipe}
+          onBreakpoint={onBreakpoint}
+          modules={[Pagination]}
+          style={{
+            paddingBottom: selectedIndex !== SERVICES.length ? 100 : 56,
+            paddingTop: 56,
+          }}
+          breakpoints={breakpoints}
+        >
+          {SERVICES.map((item, idx) => (
+            <SwiperSlide key={item.label.toString()} title={item.label}>
+              <ServiceCard
+                idx={idx}
+                item={item}
+                selectedIndex={selectedIndex}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </LazyMotion>
     </Section>
   );
 }

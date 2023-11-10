@@ -1,6 +1,7 @@
 import { clsx } from "clsx";
 import React from "react";
-import { Variants, motion } from "framer-motion";
+import { m } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 export type ServiceType = {
   label: string;
@@ -25,7 +26,7 @@ const variants: Variants = {
 export default function ServiceCard(props: Props) {
   const { idx, item, selectedIndex } = props;
   return (
-    <motion.div
+    <m.div
       className={clsx(
         "shadow-service min-h-[287px] select-none bg-white rounded-md",
         selectedIndex === idx && "border-service-active border border-solid"
@@ -48,6 +49,6 @@ export default function ServiceCard(props: Props) {
           {item.description}
         </span>
       </div>
-    </motion.div>
+    </m.div>
   );
 }
