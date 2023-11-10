@@ -17,7 +17,7 @@ export default function JumbotronInfo() {
       )}
     >
       <div className="flex-1">
-        <span className="text-5xl font-light max-md:flex max-md:flex-wrap max-md:leading-[70px]">
+        <h1 className="text-5xl font-light max-md:flex max-md:flex-wrap max-md:leading-[70px]">
           <span className="mr-4">Great</span>
           <span className="overflow-hidden md:inline-block md:h-[56px] align-middle">
             <span className="bg-clip-text text-transparent  bg-gradient-purple-text-2 lg:bg-gradient-purple-text-1 font-bold md:inline-block md:h-36 mr-4">
@@ -33,15 +33,15 @@ export default function JumbotronInfo() {
           <span className="bg-clip-text text-transparent bg-gradient-purple-text-2 font-extrabold inline-block">
             teams
           </span>
-        </span>
+        </h1>
       </div>
       <div className="mt-7">
-        <span className="text-default leading-9">
+        <h1 className="text-default leading-9">
           We help build and manage a team of world-class developers
           <span className="mr-2" />
           <br className="max-md:hidden" />
           to bring your vision to life
-        </span>
+        </h1>
       </div>
     </div>
   );

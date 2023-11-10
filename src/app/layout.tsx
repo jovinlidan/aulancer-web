@@ -8,12 +8,11 @@ import clsx from "clsx";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aulancer",
+  title: "Get your job done by us - Aulancer",
   description: "Freelancer for hire, Work with us, and get your job done!",
   keywords:
     "Freelance, Website, Job, Developer, Programming, Coding, Mobile, Application, Apps",
   robots: "index, follow",
-  viewport: "width=device-width, initial-scale=1.0",
   alternates: {
     canonical: "https://www.aulancer.com",
   },
