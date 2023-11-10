@@ -67,10 +67,15 @@ export default function FounderCard(props: Props) {
           </h6>
         </div>
         <div className="flex flex-col md:flex-row w-fit">
-          <Link href={instagramUrl} target="_blank" className="max-md:mb-2">
+          <Link
+            href={instagramUrl}
+            target="_blank"
+            className="max-md:mb-2"
+            title="Instagram"
+          >
             <InstagramSVG className="max-md:w-[32px] max-md:h-[32px]" />
           </Link>
-          <Link href={linkedinUrl} target="_blank">
+          <Link href={linkedinUrl} target="_blank" title="LinkedIn">
             <LinkedinSVG className="max-md:w-[32px] max-md:h-[32px]" />
           </Link>
         </div>

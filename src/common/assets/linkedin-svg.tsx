@@ -8,7 +8,6 @@ const LinkedinSVG = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 42 42"
     fill="none"
     aria-describedby="linkedin"
-    aria-description="linkedin"
     {...props}
   >
     <path fill="#000" d="M22.278 20.077v-.057l-.037.057h.037Z" />

@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "./components/logo";
 import Navigation from "./components/navigation";
 import ContactUs from "./components/contact-us";
+import MobileNavigation from "./components/mobile-navigation";
 
 export default function Header() {
   return (
@@ -10,6 +11,10 @@ export default function Header() {
         <Logo />
         <Navigation />
         <ContactUs />
+      </section>
+      <section className="items-center h-full mx-auto flex px-4 md:hidden justify-between">
+        <Logo />
+        <MobileNavigation />
       </section>
     </header>
   );

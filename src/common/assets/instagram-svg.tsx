@@ -8,7 +8,6 @@ const InstagramSVG = (props: SVGProps<SVGSVGElement>) => (
     viewBox="0 0 42 42"
     fill="none"
     aria-describedby="instagram"
-    aria-description="instagram"
     {...props}
   >
     <path
