@@ -5,7 +5,7 @@ import React from "react";
 
 export default function ArrowDecoration() {
   return (
-    <Section className="relative">
+    <Section className="relative max-sm:hidden">
       <Image
         src={IMAGES_CONSTANT.arrowDecoration}
         width={250}
