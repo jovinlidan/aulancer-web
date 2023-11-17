@@ -12,7 +12,7 @@ export default function ChatWithUs() {
       <div className="relative max-md:mb-20">
         <LineDecorations />
         <Link
-          className="flex items-center justify-center bg-gradient-danger-bg border border-solid border-white w-[262px] h-[57px] rounded"
+          className="flex items-center justify-center bg-gradient-danger-bg border border-solid border-white w-[262px] h-[57px] rounded hover:scale-105 transition-all"
           href="https://api.whatsapp.com/send?phone=62895633098496"
           title="Chat With Us"
           target="_blank"
