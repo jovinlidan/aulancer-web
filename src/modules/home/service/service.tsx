@@ -26,9 +26,9 @@ export default function Service() {
         alt="circle-decoration"
       />
       <div className="bg-light-gray-blue w-full pt-12 pb-14 flex flex-col z-service-bg relative">
-        <h4 className="text-gray-900 font-bold text-2xl md:text-3xl lg:text-4xl text-center">
+        <h1 className="text-gray-900 font-bold text-2xl md:text-3xl lg:text-4xl text-center">
           Services we offer
-        </h4>
+        </h1>
         <ServiceCarousel />
       </div>
     </Section>
