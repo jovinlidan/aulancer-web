@@ -21,7 +21,7 @@ export default function OurValues() {
           Our Values
         </h4>
         <p className="text-base md:text-lg font-normal md:leading-[30px] text-about-us-description">
-          At the core of Aulancer are our values. We believe in the power of
+          At the core of Freelancer are our values. We believe in the power of
           Dedication, Reputation, Results, Innovation, Collaboration, and
           Adaptability. These values shape everything we do.
         </p>

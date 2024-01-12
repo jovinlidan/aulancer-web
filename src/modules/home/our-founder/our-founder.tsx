@@ -10,7 +10,7 @@ import clsx from "clsx";
 const OUR_FOUNDERS: FounderCardType[] = [
   {
     imageUrl: IMAGES_CONSTANT.ourFounder,
-    instagramUrl: "https://instagram.com/jovinlidan_/",
+    instagramUrl: "https://www.instagram.com/jovinlidan_",
     linkedinUrl: "https://www.linkedin.com/in/jovin-lidan",
     name: "Jovin Lidan",
     position: "Co-Founder",
@@ -19,9 +19,9 @@ const OUR_FOUNDERS: FounderCardType[] = [
   },
   {
     imageUrl: IMAGES_CONSTANT.ourFounder,
-    instagramUrl: "https://www.instagram.com/malvino.tan/",
-    linkedinUrl: "https://www.linkedin.com/in/malvino-austin-tanura",
-    name: "Malvino Austin Tanura",
+    instagramUrl: "https://www.instagram.com/jovinlidan_",
+    linkedinUrl: "https://www.linkedin.com/in/jovin-lidan",
+    name: "Jovin Lidan",
     position: "Co-Founder",
     contentClassName: "max-md:pr-2 max-md:items-end md:mb-5",
     containerClassName: "max-md:flex-row-reverse md:flex-col-reverse",
@@ -30,9 +30,9 @@ const OUR_FOUNDERS: FounderCardType[] = [
   },
   {
     imageUrl: IMAGES_CONSTANT.ourFounder,
-    instagramUrl: "https://www.instagram.com/jameskirawan/",
-    linkedinUrl: "https://www.linkedin.com/in/james-kirawan",
-    name: "James Kirawan",
+    instagramUrl: "https://www.instagram.com/jovinlidan_",
+    linkedinUrl: "https://www.linkedin.com/in/jovin-lidan",
+    name: "Jovin Lidan",
     position: "Co-Founder",
     contentClassName: "max-md:pl-2 md:mt-5",
     containerClassName: "md:flex-col",

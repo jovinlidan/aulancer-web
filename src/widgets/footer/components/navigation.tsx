@@ -19,12 +19,12 @@ const LINKS = [
 
 const CONTACT_US = [
   {
-    label: "aulancer8@gmail.com",
-    href: "mailto:aulancer8@gmail.com",
+    label: "jovinlidan1@gmail.com",
+    href: "mailto:jovinlidan1@gmail.com",
   },
   {
-    label: "+62895633098496",
-    href: "tel:+62895633098496",
+    label: "+62895414368386",
+    href: "tel:+62895414368386",
   },
 ];
 

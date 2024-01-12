@@ -21,7 +21,7 @@ export default function OurMission() {
           Our Mission
         </h4>
         <p className="text-base md:text-lg font-normal md:leading-[30px] text-about-us-description">
-          Our mission at Aulancer is clear: to craft software solutions that
+          Our mission at Freelancer is clear: to craft software solutions that
           make a positive impact. We are driven by the belief that technology,
           when harnessed with purpose and creativity, can shape a brighter
           future. Our team is dedicated to creating software that not only meets
@@ -31,7 +31,7 @@ export default function OurMission() {
           We are excited about the journey ahead and look forward to partnering
           with you to turn your vision into reality. Together, we&apos;ll write
           the next chapter of our story, one line of code at a time. Welcome to
-          Aulancer, where innovation meets dedication, and results are our
+          Freelancer, where innovation meets dedication, and results are our
           promise.
         </p>
       </div>

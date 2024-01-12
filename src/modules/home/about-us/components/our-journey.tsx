@@ -21,7 +21,7 @@ export default function OurJourney() {
           Our Journey
         </h4>
         <p className="text-base md:text-lg font-normal md:leading-[30px] text-about-us-description">
-          At <span className="text-about-us-highlight">Aulancer</span>, our
+          At <span className="text-about-us-highlight">Freelancer</span>, our
           journey began with a shared passion for technology and a desire to
           make a difference. Founded by three dedicated individuals, Malvino
           Austin Tanura, Jovin Lidan, and James Kirawan, our company emerged

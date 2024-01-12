@@ -8,7 +8,7 @@ import clsx from "clsx";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aulancer - Get your job done by us",
+  title: "Freelancer - Get your job done by us",
   description: "Freelancer for hire, Work with us, and get your job done!",
   keywords:
     "Freelance, Website, Job, Developer, Programming, Coding, Mobile, Application, Apps",
